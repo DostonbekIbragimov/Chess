@@ -1,0 +1,69 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="205dp"
+    android:height="199dp"
+    android:viewportWidth="205"
+    android:viewportHeight="199">
+  <path
+      android:pathData="M127.57,2.87H76.92V55.8C76.92,63.6 88.32,69.92 102.37,69.92C116.43,69.92 127.47,63.6 127.47,55.8C127.47,55.11 127.56,2.87 127.56,2.87H127.57Z"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M127.56,2.87H76.91V48.26H127.56V2.87Z"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M76.91,2.87L127.57,48.25"
+      android:strokeWidth="3.809"
+      android:fillColor="#00000000"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M127.57,2.87L76.91,48.25"
+      android:strokeWidth="3.809"
+      android:fillColor="#00000000"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M167.65,180.61C147.94,170.88 126.52,165.77 103.06,165.77C79.6,165.77 57.17,171.22 37.46,180.95C57.17,190.67 79.22,196.27 102.68,196.27C126.15,196.3 147.95,190.35 167.64,180.63L167.65,180.61Z"
+      android:strokeLineJoin="round"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M177.49,147.26C178.63,146.27 179.75,145.26 180.85,144.19C204.66,121.02 210.12,87.99 193.03,70.43C175.94,52.86 142.78,57.41 118.96,80.58C111.85,87.51 106.39,95.31 102.66,103.31C98.94,95.31 93.47,87.51 86.36,80.58C62.55,57.41 29.38,52.86 12.29,70.43C-4.8,87.99 0.65,121.02 24.48,144.19C25.58,145.26 26.7,146.28 27.84,147.27C48.41,139.55 74.4,134.93 102.68,134.93C130.93,134.93 156.92,139.56 177.46,147.26L177.49,147.26Z"
+      android:strokeLineJoin="bevel"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M102.68,103.34C106.41,95.33 111.87,87.53 118.98,80.62C124.78,74.97 131.14,70.44 137.69,67.05C126.83,64 115.04,62.32 102.7,62.32C90.35,62.32 78.55,64 67.69,67.06C74.23,70.45 80.58,74.97 86.38,80.62C93.49,87.54 98.93,95.34 102.68,103.33L102.68,103.34Z"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M177.21,147.26L177.2,147.24C156.65,139.53 130.66,134.92 102.41,134.92C74.14,134.92 48.14,139.54 27.58,147.26C27.58,147.26 37.44,154.99 38.87,160.69C40.3,166.4 40.91,174.57 37.48,180.93C57.19,171.21 79.63,165.76 103.09,165.76C126.1,165.76 148.25,171.22 167.67,180.59C164.54,174.32 164.53,166.24 165.92,160.69C167.34,155.03 177.22,147.29 177.22,147.29L177.21,147.26Z"
+      android:strokeLineJoin="bevel"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M37.46,180.96C57.17,171.23 79.61,165.78 103.07,165.78C126.08,165.78 148.23,171.24 167.65,180.62C166.32,177.93 164.92,171.09 165.14,167.26C145.62,159.59 124.63,155.4 102.76,155.4C80.63,155.4 59.42,159.68 39.71,167.51C39.96,174.59 38.95,178.15 37.48,180.92L37.46,180.96Z"
+      android:strokeLineJoin="bevel"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+  <path
+      android:pathData="M93.05,145.43L102.81,150.31L112.53,145.43L102.81,140.56L93.05,145.43Z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M53.19,151.79L63.58,155.03L72.42,148.64L62.03,145.4L53.19,151.79Z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M152.39,151.79L142.01,155.03L133.17,148.64L143.55,145.4L152.39,151.79Z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M102.68,76.28C112.58,76.28 120.61,70.35 120.61,63.04C120.61,55.73 112.58,49.8 102.68,49.8C92.78,49.8 84.75,55.73 84.75,63.04C84.75,70.35 92.78,76.28 102.68,76.28Z"
+      android:strokeWidth="3.809"
+      android:fillColor="#ffffff"
+      android:strokeColor="#20201E"/>
+</vector>
