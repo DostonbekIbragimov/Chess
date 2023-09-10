@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import uz.chess.masters.model.piece.Piece
+import uz.chess.masters.model.piece.PieceColor
 import uz.chess.masters.model.piece.PieceType
 import uz.chess.masters.model.piece.Position
 import uz.chess.masters.model.piece.getPieceIcon
@@ -42,49 +43,79 @@ fun GameScreen(
     val squareWidth = screenWidth / 8
 
     val blackPieces = mutableStateListOf(
-        Piece(type = PieceType.ROOK, position = Position(0, 0), nextMove = listOf()),
-        Piece(type = PieceType.KNIGHT, position = Position(1, 0), nextMove = listOf(Position(0, 2), Position(2, 2))),
-        Piece(type = PieceType.BISHOP, position = Position(2, 0), nextMove = listOf()),
-        Piece(type = PieceType.KING, position = Position(3, 0), nextMove = listOf()),
-        Piece(type = PieceType.QUEEN, position = Position(4, 0), nextMove = listOf()),
-        Piece(type = PieceType.BISHOP, position = Position(5, 0), nextMove = listOf()),
-        Piece(type = PieceType.KNIGHT, position = Position(6, 0), nextMove = listOf(Position(5, 2), Position(7, 2))),
-        Piece(type = PieceType.ROOK, position = Position(7, 0), nextMove = listOf()),
-        Piece(type = PieceType.PAWN, position = Position(0, 1), nextMove = listOf(Position(0, 2), Position(0, 3))),
-        Piece(type = PieceType.PAWN, position = Position(1, 1), nextMove = listOf(Position(1, 2), Position(1, 3))),
-        Piece(type = PieceType.PAWN, position = Position(2, 1), nextMove = listOf(Position(2, 2), Position(2, 3))),
-        Piece(type = PieceType.PAWN, position = Position(3, 1), nextMove = listOf(Position(3, 2), Position(3, 3))),
-        Piece(type = PieceType.PAWN, position = Position(4, 1), nextMove = listOf(Position(4, 2), Position(4, 3))),
-        Piece(type = PieceType.PAWN, position = Position(5, 1), nextMove = listOf(Position(5, 2), Position(5, 3))),
-        Piece(type = PieceType.PAWN, position = Position(6, 1), nextMove = listOf(Position(6, 2), Position(6, 3))),
-        Piece(type = PieceType.PAWN, position = Position(7, 1), nextMove = listOf(Position(7, 2), Position(7, 3)))
+        Piece(color = PieceColor.BLACK, type = PieceType.ROOK, position = Position(0, 0), nextMove = arrayListOf()),
+        Piece(color = PieceColor.BLACK, type = PieceType.KNIGHT, position = Position(1, 0), nextMove = arrayListOf(Position(0, 2), Position(2, 2))),
+        Piece(color = PieceColor.BLACK, type = PieceType.BISHOP, position = Position(2, 0), nextMove = arrayListOf()),
+        Piece(color = PieceColor.BLACK, type = PieceType.KING, position = Position(3, 0), nextMove = arrayListOf()),
+        Piece(color = PieceColor.BLACK, type = PieceType.QUEEN, position = Position(4, 0), nextMove = arrayListOf()),
+        Piece(color = PieceColor.BLACK, type = PieceType.BISHOP, position = Position(5, 0), nextMove = arrayListOf()),
+        Piece(color = PieceColor.BLACK, type = PieceType.KNIGHT, position = Position(6, 0), nextMove = arrayListOf(Position(5, 2), Position(7, 2))),
+        Piece(color = PieceColor.BLACK, type = PieceType.ROOK, position = Position(7, 0), nextMove = arrayListOf()),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(0, 1), nextMove = arrayListOf(Position(0, 2), Position(0, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(1, 1), nextMove = arrayListOf(Position(1, 2), Position(1, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(2, 1), nextMove = arrayListOf(Position(2, 2), Position(2, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(3, 1), nextMove = arrayListOf(Position(3, 2), Position(3, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(4, 1), nextMove = arrayListOf(Position(4, 2), Position(4, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(5, 1), nextMove = arrayListOf(Position(5, 2), Position(5, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(6, 1), nextMove = arrayListOf(Position(6, 2), Position(6, 3))),
+        Piece(color = PieceColor.BLACK, type = PieceType.PAWN, position = Position(7, 1), nextMove = arrayListOf(Position(7, 2), Position(7, 3)))
     )
 
     val whitePieces = mutableStateListOf(
-        Piece(type = PieceType.ROOK, position = Position(0, 7), nextMove = listOf()),
-        Piece(type = PieceType.KNIGHT, position = Position(1, 7), nextMove = listOf(Position(0, 5), Position(2, 5))),
-        Piece(type = PieceType.BISHOP, position = Position(2, 7), nextMove = listOf()),
-        Piece(type = PieceType.KING, position = Position(3, 7), nextMove = listOf()),
-        Piece(type = PieceType.QUEEN, position = Position(4, 7), nextMove = listOf()),
-        Piece(type = PieceType.BISHOP, position = Position(5, 7), nextMove = listOf()),
-        Piece(type = PieceType.KNIGHT, position = Position(6, 7), nextMove = listOf(Position(5, 5), Position(7, 5))),
-        Piece(type = PieceType.ROOK, position = Position(7, 7), nextMove = listOf()),
-        Piece(type = PieceType.PAWN, position = Position(0, 6), nextMove = listOf(Position(0, 5), Position(0, 4))),
-        Piece(type = PieceType.PAWN, position = Position(1, 6), nextMove = listOf(Position(1, 5), Position(1, 4))),
-        Piece(type = PieceType.PAWN, position = Position(2, 6), nextMove = listOf(Position(2, 5), Position(2, 4))),
-        Piece(type = PieceType.PAWN, position = Position(3, 6), nextMove = listOf(Position(3, 5), Position(3, 4))),
-        Piece(type = PieceType.PAWN, position = Position(4, 6), nextMove = listOf(Position(4, 5), Position(4, 4))),
-        Piece(type = PieceType.PAWN, position = Position(5, 6), nextMove = listOf(Position(5, 5), Position(5, 4))),
-        Piece(type = PieceType.PAWN, position = Position(6, 6), nextMove = listOf(Position(6, 5), Position(6, 4))),
-        Piece(type = PieceType.PAWN, position = Position(7, 6), nextMove = listOf(Position(7, 5), Position(7, 4)))
+        Piece(color = PieceColor.WHITE, type = PieceType.ROOK, position = Position(0, 7), nextMove = arrayListOf()),
+        Piece(color = PieceColor.WHITE, type = PieceType.KNIGHT, position = Position(1, 7), nextMove = arrayListOf(Position(0, 5), Position(2, 5))),
+        Piece(color = PieceColor.WHITE, type = PieceType.BISHOP, position = Position(2, 7), nextMove = arrayListOf()),
+        Piece(color = PieceColor.WHITE, type = PieceType.KING, position = Position(3, 7), nextMove = arrayListOf()),
+        Piece(color = PieceColor.WHITE, type = PieceType.QUEEN, position = Position(4, 7), nextMove = arrayListOf()),
+        Piece(color = PieceColor.WHITE, type = PieceType.BISHOP, position = Position(5, 7), nextMove = arrayListOf()),
+        Piece(color = PieceColor.WHITE, type = PieceType.KNIGHT, position = Position(6, 7), nextMove = arrayListOf(Position(5, 5), Position(7, 5))),
+        Piece(color = PieceColor.WHITE, type = PieceType.ROOK, position = Position(7, 7), nextMove = arrayListOf()),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(0, 6), nextMove = arrayListOf(Position(0, 5), Position(0, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(1, 6), nextMove = arrayListOf(Position(1, 5), Position(1, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(2, 6), nextMove = arrayListOf(Position(2, 5), Position(2, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(3, 6), nextMove = arrayListOf(Position(3, 5), Position(3, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(4, 6), nextMove = arrayListOf(Position(4, 5), Position(4, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(5, 6), nextMove = arrayListOf(Position(5, 5), Position(5, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(6, 6), nextMove = arrayListOf(Position(6, 5), Position(6, 4))),
+        Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(7, 6), nextMove = arrayListOf(Position(7, 5), Position(7, 4)))
     )
 
     var selectedPiece: Piece? = null
 
     var isWhitePlayer = true
 
-    fun updateNextMoves() {
+    fun getBoard(): ArrayList<ArrayList<Piece?>> {
+        val board = ArrayList<ArrayList<Piece?>>()
+        for (row in 0 until 8) {
+            val rowList = ArrayList<Piece?>()
+            for (col in 0 until 8) {
 
+                var piece = whitePieces.find { it.position.x == row && it.position.y == col }
+                if (piece == null) {
+                    piece = blackPieces.find { it.position.x == row && it.position.y == col }
+                }
+                rowList.add(piece)
+            }
+            board.add(rowList)
+        }
+        return board
+    }
+
+    fun getKnightMoves(piece: Piece, board: ArrayList<ArrayList<Piece?>>): List<Position> {
+        val moves = mutableListOf<Position>()
+
+        val dx = arrayListOf(1, 1, 2, 2, -1, -1, -2, -2)
+        val dy = listOf(2, -2, 1, -1, 2, -2, 1, -1)
+
+        for (i in 0 until 8) {
+            val newX = piece.position.x + dx[i]
+            val newY = piece.position.y + dy[i]
+            if (newX in 0..7 && newY in 0..7 && (board[newX][newY]?.color != piece.color || board[newX][newY] == null)) {
+                moves.add(Position(newX, newY))
+            }
+        }
+
+        return moves
     }
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -108,12 +139,11 @@ fun GameScreen(
                                     if (newSelectedCell != null) {
                                         if (isWhitePlayer) {
                                             whitePieces.find { it.position == selectedPiece!!.position }?.position = newSelectedCell
-                                            whitePieces.find { it.position == selectedPiece!!.position }?.nextMove = listOf()
+                                            whitePieces.find { it.position == selectedPiece!!.position }?.nextMove = arrayListOf()
                                         } else {
                                             blackPieces.find { it.position == selectedPiece!!.position }?.position = newSelectedCell
-                                            blackPieces.find { it.position == selectedPiece!!.position }?.nextMove = listOf()
+                                            blackPieces.find { it.position == selectedPiece!!.position }?.nextMove = arrayListOf()
                                         }
-                                        updateNextMoves()
                                         isWhitePlayer = !isWhitePlayer
                                     }
                                 }
@@ -122,9 +152,31 @@ fun GameScreen(
                                         moveAbleList.addAll(whitePiece.nextMove)
                                         selectedPiece = whitePiece
                                     }
-                                } else if (blackPiece != null && !blackPiece.nextMove.isNullOrEmpty()) {
-                                    moveAbleList.addAll(blackPiece.nextMove)
-                                    selectedPiece = blackPiece
+                                    if (whitePiece != null && whitePiece.type == PieceType.KNIGHT) {
+                                        moveAbleList.clear()
+                                        val nextMoveAbleList = getKnightMoves(whitePiece, getBoard())
+                                        moveAbleList.addAll(nextMoveAbleList)
+                                        whitePieces.find { it.position.x == x && it.position.y == y }?.apply {
+                                            nextMove = arrayListOf()
+                                            nextMove.addAll(nextMoveAbleList)
+                                        }
+                                        selectedPiece = whitePiece
+                                    }
+                                } else {
+                                    if (blackPiece != null && !blackPiece.nextMove.isNullOrEmpty()) {
+                                        moveAbleList.addAll(blackPiece.nextMove)
+                                        selectedPiece = blackPiece
+                                    }
+                                    if(blackPiece != null && blackPiece.type == PieceType.KNIGHT){
+                                        moveAbleList.clear()
+                                        val nextMoveAbleList = getKnightMoves(blackPiece, getBoard())
+                                        moveAbleList.addAll(nextMoveAbleList)
+                                        blackPieces.find { it.position.x == x && it.position.y == y }?.apply {
+                                            nextMove = arrayListOf()
+                                            nextMove.addAll(nextMoveAbleList)
+                                        }
+                                        selectedPiece = blackPiece
+                                    }
                                 }
                             }, contentAlignment = Alignment.Center
                     ) {

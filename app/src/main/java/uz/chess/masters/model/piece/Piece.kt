@@ -6,5 +6,11 @@ package uz.chess.masters.model.piece
 data class Piece(
     var type: PieceType,
     var position: Position,
-    var nextMove: List<Position> = emptyList()
+    var nextMove: ArrayList<Position> = arrayListOf(),
+    var color: PieceColor
 )
+
+enum class PieceColor {
+    WHITE,
+    BLACK
+}
