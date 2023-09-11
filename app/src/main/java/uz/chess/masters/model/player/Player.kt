@@ -7,7 +7,7 @@ import uz.chess.masters.model.piece.Piece
  */
 data class Player(
     var leftTime: Long,
-    var currentPieces: List<Piece>,
-    var takenPieces: List<Piece>,
+    var currentPieces: ArrayList<Piece>,
+    var takenPieces: ArrayList<Piece>,
     var isMoveQueue: Boolean
 )
