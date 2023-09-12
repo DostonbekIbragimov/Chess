@@ -70,8 +70,8 @@ fun getBoard(game: Game): ArrayList<ArrayList<Piece?>> {
 
 fun getPawnMoves(piece: Piece, board: ArrayList<ArrayList<Piece?>>): List<Position> {
     val moves = mutableListOf<Position>()
-    val direction = if (piece.color == PieceColor.BLACK) 1 else -1
-    val initialRow = if (piece.color == PieceColor.WHITE) 1 else 6
+    val direction = if (piece.color == PieceColor.WHITE)  -1 else 1
+    val initialRow = if (piece.color == PieceColor.WHITE) 6 else 1
 
     // Forward move
     val nextY = piece.position.y + direction
@@ -79,7 +79,7 @@ fun getPawnMoves(piece: Piece, board: ArrayList<ArrayList<Piece?>>): List<Positi
         moves.add(Position(piece.position.x, nextY))
 
         // Initial double move
-        if (piece.position.x == initialRow) {
+        if (piece.position.y == initialRow) {
             val nextDoubleY = piece.position.y + 2 * direction
             if (board[piece.position.x][nextDoubleY] == null) {
                 moves.add(Position(piece.position.x, nextDoubleY))
@@ -91,10 +91,10 @@ fun getPawnMoves(piece: Piece, board: ArrayList<ArrayList<Piece?>>): List<Positi
     val captureX1 = piece.position.x - 1
     val captureX2 = piece.position.x + 1
     val captureY = piece.position.y + direction
-    if (captureX1 >= 0 && captureY in 0..7 && board[captureX1][captureY]?.color != piece.color) {
+    if (captureX1 >= 0 && captureY in 0..7 && board[captureX1][captureY] != null && board[captureX1][captureY]?.color != piece.color) {
         moves.add(Position(captureX1, captureY))
     }
-    if (captureX2 <= 7 && captureY in 0..7 && board[captureX2][captureY]?.color != piece.color) {
+    if (captureX2 <= 7 && captureY in 0..7 && board[captureX2][captureY] !=null && board[captureX2][captureY]?.color != piece.color) {
         moves.add(Position(captureX2, captureY))
     }
 

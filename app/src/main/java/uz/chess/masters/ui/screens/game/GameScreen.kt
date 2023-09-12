@@ -118,7 +118,7 @@ fun GameScreen(
                     PieceType.BISHOP -> getBishopMoves(whitePiece, getBoard(game))
                     PieceType.QUEEN -> getQueenMoves(whitePiece, getBoard(game))
                     PieceType.KING -> getKingMoves(whitePiece, getBoard(game))
-//                    PieceType.PAWN -> getPawnMoves(whitePiece, getBoard(game))
+                    PieceType.PAWN -> getPawnMoves(whitePiece, getBoard(game))
                     else -> whitePiece.nextMove
                 }
 
@@ -143,7 +143,7 @@ fun GameScreen(
                     PieceType.BISHOP -> getBishopMoves(blackPiece, getBoard(game))
                     PieceType.QUEEN -> getQueenMoves(blackPiece, getBoard(game))
                     PieceType.KING -> getKingMoves(blackPiece, getBoard(game))
-//                    PieceType.PAWN -> getPawnMoves(blackPiece, getBoard(game))
+                    PieceType.PAWN -> getPawnMoves(blackPiece, getBoard(game))
                     else -> blackPiece.nextMove
                 }
 
@@ -199,8 +199,8 @@ fun GameScreen(
                         if (moveAbleItem != null) {
                             Box(
                                 modifier = Modifier
-                                    .size(12.dp)
-                                    .background(color = Color.Black.copy(alpha = 0.4f), shape = RoundedCornerShape(20.dp))
+                                    .size(squareWidth.dp)
+                                    .background(color = Color.Green.copy(alpha = 0.2f)/*, shape = RoundedCornerShape(20.dp)*/)
                             )
                         }
                     }
