@@ -19,7 +19,7 @@ fun MainScreen(
 ) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
-            navController.navigate(Screens.GAME.name)
+            navController.navigate(Screens.TEST_GAME.name)
         }) {
             Text("Play")
         }

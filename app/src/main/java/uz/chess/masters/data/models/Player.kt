@@ -1,11 +1,10 @@
-package uz.chess.masters.model.player
+package uz.chess.masters.data.models
 
-import uz.chess.masters.model.piece.Piece
+import kotlinx.serialization.Serializable
 
-/**
- * Created by DostonbekIbragimov on 08/09/2023.
- */
+@Serializable
 data class Player(
+    var id: String,
     var leftTime: Long,
     var currentPieces: List<Piece>,
     var takenPieces: List<Piece>,
