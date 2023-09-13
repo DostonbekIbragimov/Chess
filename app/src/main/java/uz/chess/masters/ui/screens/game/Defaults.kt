@@ -1,11 +1,10 @@
 package uz.chess.masters.ui.screens.game
 
-import uz.chess.masters.model.game.Game
-import uz.chess.masters.model.piece.Piece
-import uz.chess.masters.model.piece.PieceColor
-import uz.chess.masters.model.piece.PieceType
-import uz.chess.masters.model.piece.Position
-import uz.chess.masters.model.player.Player
+import uz.chess.masters.data.models.Game
+import uz.chess.masters.data.models.Piece
+import uz.chess.masters.data.models.PieceColor
+import uz.chess.masters.data.models.PieceType
+import uz.chess.masters.data.models.Position
 
 /**
  * Created by DostonbekIbragimov on 11/09/2023.
@@ -48,18 +47,15 @@ private val whitePieces = arrayListOf(
     Piece(color = PieceColor.WHITE, type = PieceType.PAWN, position = Position(7, 6), nextMove = arrayListOf(Position(7, 5), Position(7, 4)))
 )
 
-val whitePlayer = Player(leftTime = 10_000, currentPieces = whitePieces, takenPieces = arrayListOf(), isMoveQueue = false)
-val blackPlayer = Player(leftTime = 10_000, currentPieces = blackPieces, takenPieces = arrayListOf(), isMoveQueue = false)
-
 fun getBoard(game: Game): ArrayList<ArrayList<Piece?>> {
     val board = ArrayList<ArrayList<Piece?>>()
     for (row in 0 until 8) {
         val rowList = ArrayList<Piece?>()
         for (col in 0 until 8) {
 
-            var piece = game.whitePlayer.currentPieces.find { it.position.x == row && it.position.y == col }
+            var piece = game.whitePlayer?.currentPieces?.find { it.position.x == row && it.position.y == col }
             if (piece == null) {
-                piece = game.blackPlayer.currentPieces.find { it.position.x == row && it.position.y == col }
+                piece = game.blackPlayer?.currentPieces?.find { it.position.x == row && it.position.y == col }
             }
             rowList.add(piece)
         }
@@ -70,8 +66,8 @@ fun getBoard(game: Game): ArrayList<ArrayList<Piece?>> {
 
 fun getPawnMoves(piece: Piece, board: ArrayList<ArrayList<Piece?>>): List<Position> {
     val moves = mutableListOf<Position>()
-    val direction = if (piece.color == PieceColor.WHITE)  -1 else 1
-    val initialRow = if (piece.color == PieceColor.WHITE) 6 else 1
+    val direction = if (piece.color == PieceColor.BLACK) -1 else 1
+    val initialRow = if (piece.color == PieceColor.BLACK) 6 else 1
 
     // Forward move
     val nextY = piece.position.y + direction
@@ -94,7 +90,7 @@ fun getPawnMoves(piece: Piece, board: ArrayList<ArrayList<Piece?>>): List<Positi
     if (captureX1 >= 0 && captureY in 0..7 && board[captureX1][captureY] != null && board[captureX1][captureY]?.color != piece.color) {
         moves.add(Position(captureX1, captureY))
     }
-    if (captureX2 <= 7 && captureY in 0..7 && board[captureX2][captureY] !=null && board[captureX2][captureY]?.color != piece.color) {
+    if (captureX2 <= 7 && captureY in 0..7 && board[captureX2][captureY] != null && board[captureX2][captureY]?.color != piece.color) {
         moves.add(Position(captureX2, captureY))
     }
 

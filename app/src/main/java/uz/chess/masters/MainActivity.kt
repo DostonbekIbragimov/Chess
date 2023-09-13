@@ -14,8 +14,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uz.chess.masters.ui.screens.Screens
+import uz.chess.masters.ui.screens.game.GameScreen
 import uz.chess.masters.ui.screens.main.MainScreen
-import uz.chess.masters.ui.screens.testgame.TestGameScreen
 import uz.chess.masters.ui.theme.ChessMastersTheme
 
 @AndroidEntryPoint
@@ -42,12 +42,8 @@ fun AppNavHost(
             MainScreen(navController = navController)
         }
 
-//        composable(Screens.GAME.name) {
-//            GameScreen(navController = navController)
-//        }
-
-        composable(Screens.TEST_GAME.name) {
-            TestGameScreen(navController = navController)
+        composable(Screens.GAME.name) {
+            GameScreen(navController = navController)
         }
 
     }

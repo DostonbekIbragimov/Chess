@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class Piece(
     var type: PieceType,
     var position: Position,
-    var nextMove: List<Position> = arrayListOf(),
+    var nextMove: ArrayList<Position> = arrayListOf(),
     var color: PieceColor
 )
 

@@ -1,4 +1,4 @@
-package uz.chess.masters.ui.screens.testgame
+package uz.chess.masters.ui.screens.game
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
@@ -80,9 +80,10 @@ class GameViewModel @Inject constructor(
         }
     }
 
-    fun moveSend() {
+    fun moveSend(game: Game) {
         viewModelScope.launch(Dispatchers.IO) {
-            gameState.value.let { repository.moveSend(it) }
+            repository.moveSend(game)
+
         }
     }
 

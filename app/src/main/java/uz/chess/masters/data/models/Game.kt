@@ -6,5 +6,6 @@ import kotlinx.serialization.Serializable
 data class Game(
     val whitePlayer: Player? = null,
     val blackPlayer: Player? = null,
+    val queuePlayerId: String? = null,
     val gameState: GameStateData = GameStateData()
 )

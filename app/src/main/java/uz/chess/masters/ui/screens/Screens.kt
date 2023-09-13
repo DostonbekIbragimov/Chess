@@ -5,6 +5,5 @@ package uz.chess.masters.ui.screens
  */
 enum class Screens {
     MAIN,
-    GAME,
-    TEST_GAME
+    GAME
 }

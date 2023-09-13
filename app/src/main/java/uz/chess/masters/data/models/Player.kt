@@ -8,5 +8,4 @@ data class Player(
     var leftTime: Long,
     var currentPieces: ArrayList<Piece>,
     var takenPieces: ArrayList<Piece>,
-    var isMoveQueue: Boolean
 )
