@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class Player(
     var id: String,
     var leftTime: Long,
-    var currentPieces: List<Piece>,
-    var takenPieces: List<Piece>,
+    var currentPieces: ArrayList<Piece>,
+    var takenPieces: ArrayList<Piece>,
     var isMoveQueue: Boolean
 )
