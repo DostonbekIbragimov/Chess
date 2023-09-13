@@ -9,3 +9,5 @@ inline fun <reified T> String.getDataFromMyServerJson(): T {
 
     return json.decodeFromString(this.substringAfter('#'))
 }
+
+fun String.getResponseType() = this.substringBefore('#')

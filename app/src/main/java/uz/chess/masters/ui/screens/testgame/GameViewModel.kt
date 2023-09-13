@@ -17,7 +17,9 @@ import uz.chess.masters.data.repository.MainRepository
 import uz.chess.masters.utils.TYPE_CONNECT
 import uz.chess.masters.utils.TYPE_ERROR
 import uz.chess.masters.utils.TYPE_GAME
+import uz.chess.masters.utils.TYPE_MOVE
 import uz.chess.masters.utils.getDataFromMyServerJson
+import uz.chess.masters.utils.getResponseType
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,7 +47,7 @@ class GameViewModel @Inject constructor(
             repository.receiver().collect { dataStringJson ->
                 Log.d("TAG_TEST", "RESPONSE: $dataStringJson")
                 try {
-                    when (dataStringJson.substringBefore('#')) {
+                    when (dataStringJson.getResponseType()) {
                         TYPE_CONNECT -> {
                             playerState.value = dataStringJson.getDataFromMyServerJson()
                         }
@@ -58,6 +60,11 @@ class GameViewModel @Inject constructor(
                         TYPE_ERROR -> {
                             _errorState.send("Error ")
                         }
+
+                        TYPE_MOVE -> {
+                            gameState.value = dataStringJson.getDataFromMyServerJson()
+                        }
+
                     }
                 } catch (e: Exception) {
                     Log.d("TAG_TEST", "exception: $e")
@@ -73,9 +80,9 @@ class GameViewModel @Inject constructor(
         }
     }
 
-    fun move() {
+    fun moveSend() {
         viewModelScope.launch(Dispatchers.IO) {
-            gameState.value.let { repository.sendAction(it) }
+            gameState.value.let { repository.moveSend(it) }
         }
     }
 

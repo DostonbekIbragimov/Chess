@@ -11,4 +11,5 @@ Action types for Websocket
  */
 const val TYPE_CONNECT = "type_connect"
 const val TYPE_GAME = "type_game"
+const val TYPE_MOVE = "type_move"
 const val TYPE_ERROR = "type_error"

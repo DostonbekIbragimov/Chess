@@ -9,6 +9,6 @@ interface MainRepository {
     //    fun connectToSocket(): Flow<String>
     suspend fun connect()
     fun receiver(): Flow<String>
-    suspend fun sendAction(game: Game)
+    suspend fun moveSend(game: Game)
     suspend fun close()
 }

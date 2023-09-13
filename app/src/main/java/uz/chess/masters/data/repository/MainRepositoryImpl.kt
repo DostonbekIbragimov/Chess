@@ -17,6 +17,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import uz.chess.masters.data.models.Game
 import uz.chess.masters.utils.TYPE_ERROR
+import uz.chess.masters.utils.TYPE_MOVE
 import javax.inject.Inject
 
 class MainRepositoryImpl @Inject constructor(
@@ -42,10 +43,9 @@ class MainRepositoryImpl @Inject constructor(
         }
     }
 
-
-    override suspend fun sendAction(game: Game) {
+    override suspend fun moveSend(game: Game) {
         session?.outgoing?.send(
-            Frame.Text(Json.encodeToString(game))
+            Frame.Text("$TYPE_MOVE#${Json.encodeToString(game)}")
         )
     }
 
