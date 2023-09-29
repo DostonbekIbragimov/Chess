@@ -94,4 +94,9 @@ class GameViewModel @Inject constructor(
         }
     }
 
+    fun isMyQueue(): Boolean {
+//        return playerState.value?.id == gameState.value.queuePlayerId
+        return true
+    }
+
 }

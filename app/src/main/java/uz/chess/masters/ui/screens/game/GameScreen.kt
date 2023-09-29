@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -35,6 +37,9 @@ import uz.chess.masters.data.models.Piece
 import uz.chess.masters.data.models.PieceType
 import uz.chess.masters.data.models.Position
 import uz.chess.masters.data.models.getPieceIcon
+import uz.chess.masters.utils.FIRST_PLAYER_COLOR
+import uz.chess.masters.utils.FIRST_PLAYER_ID
+import uz.chess.masters.utils.SECOND_PLAYER_COLOR
 import uz.chess.masters.utils.extensions.getCellColor
 import uz.chess.masters.utils.showToast
 
@@ -175,6 +180,9 @@ fun GameScreen(
     }
 
     Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
+
+        Text(text = "You are ${if (viewModel.playerState.value?.id == FIRST_PLAYER_ID) FIRST_PLAYER_COLOR else SECOND_PLAYER_COLOR} player", Modifier.padding(20.dp))
+
         LazyRow(contentPadding = PaddingValues(horizontal = 10.dp)) {
             items(blackPlayerTakenPieces.size) { index ->
                 Image(
@@ -198,7 +206,9 @@ fun GameScreen(
                             .size(squareWidth.dp)
                             .background(color = index.getCellColor())
                             .clickable(interactionSource = remember { MutableInteractionSource() }, indication = rememberRipple()) {
-                                boardClicked(x, y, blackPiece, whitePiece)
+                                if (viewModel.isMyQueue()) {
+                                    boardClicked(x, y, blackPiece, whitePiece)
+                                }
                             }, contentAlignment = Alignment.Center
                     ) {
                         if (blackPiece != null) {
