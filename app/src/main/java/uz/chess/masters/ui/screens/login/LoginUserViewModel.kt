@@ -15,7 +15,7 @@ import uz.chess.masters.utils.api.NetworkResult
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class LoginUserViewModel @Inject constructor(
     private val service: AuthService
 ) : ViewModel() {
     val usernameState = mutableStateOf("")

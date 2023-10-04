@@ -1,4 +1,4 @@
-package uz.chess.masters.ui.screens.login
+package uz.chess.masters.ui.screens.createuser
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,22 +19,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import kotlinx.coroutines.flow.collect
-import uz.chess.masters.ui.screens.Screens
 import uz.chess.masters.utils.api.NetworkResult
-import uz.chess.masters.utils.compose.ClickableText
 import uz.chess.masters.utils.compose.PrimaryButton
+import uz.chess.masters.utils.compose.Spacer10dp
 import uz.chess.masters.utils.compose.Spacer12dp
-import uz.chess.masters.utils.compose.Spacer24dp
 import uz.chess.masters.utils.compose.Spacer48dp
-import uz.chess.masters.utils.compose.SpacerFillAvailableWeight
 import uz.chess.masters.utils.showToast
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(
+fun CreateUserScreen(
     navController: NavController,
-    viewModel: LoginUserViewModel = hiltViewModel()
+    viewModel: CreateUserViewModel = hiltViewModel()
 ) {
 
     val context = LocalContext.current
@@ -43,7 +39,7 @@ fun LoginScreen(
     }
 
     LaunchedEffect(key1 = Unit, block = {
-        viewModel.loginResponseState.collect {
+        viewModel.createUserResponseState.collect {
             loadingState = when (it) {
                 is NetworkResult.Error -> {
                     showToast(context, it.message)
@@ -68,23 +64,17 @@ fun LoginScreen(
             .padding(32.dp), contentAlignment = Alignment.Center
     ) {
         Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "Login")
+            Text(text = "Sign up")
             Spacer12dp()
             TextField(value = viewModel.usernameState.value, onValueChange = { viewModel.usernameState.value = it }, placeholder = { Text(text = "username") })
+            Spacer10dp()
+            TextField(value = viewModel.fullNameState.value, onValueChange = { viewModel.fullNameState.value = it }, placeholder = { Text(text = "full name") })
+            Spacer10dp()
             TextField(value = viewModel.passwordState.value, onValueChange = { viewModel.passwordState.value = it }, placeholder = { Text(text = "password") })
             Spacer48dp()
-            PrimaryButton(text = "Login") {
-                viewModel.login()
+            PrimaryButton(text = "sign up") {
+                viewModel.create()
             }
-            Spacer24dp()
-            ClickableText(text = "Sign up") {
-                navController.navigate(Screens.CREATE_USER.name)
-            }
-            Spacer24dp()
-            ClickableText(text = "All users") {
-                navController.navigate(Screens.ALL_USERS.name)
-            }
-
         }
     }
 }

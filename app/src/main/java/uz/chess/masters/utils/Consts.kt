@@ -17,5 +17,6 @@ const val TYPE_ERROR = "type_error"
 
 /***HTTP URLs*/
 const val URL_LOGIN = "http://10.10.255.241:8080/login"
-const val URL_REGISTER = "http://192.168.10.01/register"
-const val URL_PROFILE = "http://192.168.10.01/profile"
+const val URL_CREATE = "http://10.10.255.241:8080/create"
+const val URL_ALL_USERS = "http://10.10.255.241:8080/all-users"
+const val URL_PROFILE = "http://10.10.255.241:8080/profile"

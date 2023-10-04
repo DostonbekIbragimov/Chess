@@ -5,7 +5,8 @@ package uz.chess.masters.ui.screens
  */
 enum class Screens {
     LOGIN,
-    REGISTER,
+    CREATE_USER,
+    ALL_USERS,
     MAIN,
     GAME
 }
